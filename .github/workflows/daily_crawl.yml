@@ -21,10 +21,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # ── 2. Setup Python ───────────────────────────────────────
-      - name: Set up Python 3.11
+      - name: Set up Python 3.14
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.14"
           cache: "pip"
 
       # ── 3. Install dependencies ───────────────────────────────
@@ -40,7 +40,7 @@ jobs:
         env:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
           GOOGLE_SPREADSHEET_ID:   ${{ secrets.GOOGLE_SPREADSHEET_ID }}
-        run: python scripts/crawl_cmc.py
+        run: python script/crawl_cmc.py
 
       # ── 6. Commit & push CSV data back to repo ────────────────
       - name: Commit data files
